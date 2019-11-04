@@ -4,13 +4,13 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 def create_app():
-    from . import models, views
+    from . import models, routes
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     models.init_app(app)
-    views.init_app(app)
+    routes.init_app(app)
 
     return app
 
